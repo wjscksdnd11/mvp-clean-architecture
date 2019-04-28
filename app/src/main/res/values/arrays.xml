@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="top_category">
+        <!--홈, 브랜드, 여성, 남성, 세일-->
+        <item>@string/top_category_home</item>
+        <item>@string/top_category_brand</item>
+        <item>@string/top_category_female</item>
+        <item>@string/top_category_male</item>
+        <item>@string/top_category_sale</item>
+
+    </string-array>
+
+</resources>

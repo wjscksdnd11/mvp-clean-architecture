@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">tranbesample</string>
+    <string name="title_home">Home</string>
+    <string name="title_upload">Upload</string>
+    <string name="title_shopping">Shopping</string>
+    <string name="title_noti">Notifications</string>
+    <string name="title_profile">Profile</string>
+    <string name="top_category_home">Home</string>
+    <string name="top_category_brand">Brands</string>
+    <string name="top_category_female">Female</string>
+    <string name="top_category_male">Male</string>
+    <string name="top_category_sale">Sale</string>
+</resources>

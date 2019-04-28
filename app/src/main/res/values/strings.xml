@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">tranbesample</string>
+    <string name="title_home">홈</string>
+    <string name="title_upload">업로드</string>
+    <string name="title_shopping">쇼핑</string>
+    <string name="title_noti">알림</string>
+    <string name="title_profile">프로필</string>
+    <string name="top_category_home">홈</string>
+    <string name="top_category_brand">브랜드</string>
+    <string name="top_category_female">여성</string>
+    <string name="top_category_male">남성</string>
+    <string name="top_category_sale">세일</string>
+</resources>
