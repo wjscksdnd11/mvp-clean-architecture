@@ -15,7 +15,6 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -114,6 +113,11 @@ public class ContentsFragment extends Fragment implements ContentsContract.View 
     @Override
     public void showTasks(List<HomeCategory> categories) {
         mAdapter.replaceData((ArrayList<HomeCategory>) categories);
+    }
+
+    @Override
+    public void showNoChildCategories() {
+        showSnackBar(getString(R.string.no_child_string));
     }
 
     private void showSnackBar(String msg){

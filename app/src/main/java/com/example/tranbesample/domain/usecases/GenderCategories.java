@@ -40,9 +40,9 @@ public class GenderCategories extends UseCase<GenderCategories.RequestValues, Ge
             @Override
             public void onDataLoaded(List<HomeCategory> categories) {
                 CATEGORIES_TYPE currentFiltering = requestValues.getCurrentCategoryType();
-                CategoryFilter taskFilter = mFilterFactory.categoryFilterCreate(currentFiltering);
-                List<HomeCategory> tasksFiltered = taskFilter.filter(categories);
-                ResponseValue responseValue = new ResponseValue(tasksFiltered);
+                CategoryFilter typeFilter = mFilterFactory.categoryFilterCreate(currentFiltering);
+                List<HomeCategory> typeFilteredCategoryList = typeFilter.filter(categories);
+                ResponseValue responseValue = new ResponseValue(typeFilteredCategoryList);
                 getUseCaseCallback().onSuccess(responseValue);
             }
 
