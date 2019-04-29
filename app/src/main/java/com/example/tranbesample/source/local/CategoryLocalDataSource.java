@@ -7,13 +7,14 @@ import androidx.annotation.NonNull;
 
 public class CategoryLocalDataSource implements CategoryDataSource {
     private static  CategoryLocalDataSource INSTANCE = null;
-
-    private CategoryLocalDataSource() {
+    private CategoryDao mDao;
+    private CategoryLocalDataSource(CategoryDao categoryDao) {
+        mDao = categoryDao;
     }
 
-    public static CategoryLocalDataSource getInstance() {
+    public static CategoryLocalDataSource getInstance(CategoryDao categoryDao) {
         if (INSTANCE == null) {
-            INSTANCE = new CategoryLocalDataSource();
+            INSTANCE = new CategoryLocalDataSource(categoryDao);
         }
         return INSTANCE;
     }

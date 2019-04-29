@@ -10,10 +10,11 @@ public class HomeCategory implements Serializable {
     public String name;
 
     @SerializedName("images")
-    public ImagesEntity images;
+    public ImagesData images;
 
     public int type;
 
+    @SerializedName("childCategories")
     public List<HomeCategory> childCategories;
 
     @Override
@@ -23,5 +24,21 @@ public class HomeCategory implements Serializable {
                 ", images=" + images +
                 ", childCategories=" + childCategories +
                 '}';
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public ImagesData getImages() {
+        return images;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public List<HomeCategory> getChildCategories() {
+        return childCategories;
     }
 }

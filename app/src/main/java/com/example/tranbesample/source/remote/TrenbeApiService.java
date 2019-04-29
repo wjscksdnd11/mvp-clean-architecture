@@ -1,6 +1,7 @@
 package com.example.tranbesample.source.remote;
 
 import com.example.tranbesample.BuildConfig;
+import com.example.tranbesample.datas.ContainerData;
 import com.example.tranbesample.datas.HomeCategory;
 
 import retrofit2.Call;
@@ -13,8 +14,8 @@ public interface TrenbeApiService {
 
     final String base_url = BuildConfig.BASE_URL;
 
-    @GET("Images/categires.json")
-    Call<HomeCategory> getCategories();
+    @GET("Images/categories.json")
+    Call<ContainerData> getCategories();
 
     public static final Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(base_url)

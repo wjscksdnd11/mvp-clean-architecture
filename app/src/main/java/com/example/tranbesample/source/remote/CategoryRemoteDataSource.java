@@ -1,11 +1,15 @@
 package com.example.tranbesample.source.remote;
 
+import android.util.Log;
+
+import com.example.tranbesample.datas.ContainerData;
 import com.example.tranbesample.datas.HomeCategory;
 import com.example.tranbesample.source.CategoryDataSource;
 import com.example.tranbesample.source.entity.Categories;
 import com.example.tranbesample.utils.AppExecutors;
 
 import java.util.Collections;
+import java.util.List;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -35,16 +39,17 @@ public class CategoryRemoteDataSource implements CategoryDataSource {
     @Override
     public void getCategories(@NonNull final LoadCallback callback) {
         try {
-            Call<HomeCategory> call = apiService.getCategories();
-            call.enqueue(new Callback<HomeCategory>() {
+            Call<ContainerData> call = apiService.getCategories();
+            call.enqueue(new Callback<ContainerData>() {
             Runnable runnable;
                 @Override
-                public void onResponse(@Nonnull Call<HomeCategory> call, final Response<HomeCategory> response) {
+                public void onResponse(@Nonnull Call<ContainerData> call, final Response<ContainerData> response) {
                    if (response.body()!=null){
                       runnable=  new Runnable(){
                            @Override
                            public void run() {
-                               callback.onDataLoaded(Collections.singletonList(response.body()));
+                               ContainerData containerData = response.body();
+                               callback.onDataLoaded( containerData.categoryList);
                            }
                        };
                    }else{
@@ -60,10 +65,11 @@ public class CategoryRemoteDataSource implements CategoryDataSource {
                 }
 
                 @Override
-                public void onFailure(@Nullable Call<HomeCategory> call,@Nonnull Throwable t) {
+                public void onFailure(@Nullable Call<ContainerData> call,@Nonnull final Throwable t) {
                     mAppExcoutors.mainThread().execute(new Runnable() {
                         @Override
                         public void run() {
+                            Log.i("error", t.getMessage());
                             callback.onDataNotAvailable();
                         }
                     });

@@ -38,10 +38,12 @@ public class ContentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         ItemViewHolder itemViewHolder = (ItemViewHolder) holder;
+        itemViewHolder.bind(mDatas.get(position));
 
     }
-    public void replaceData(ArrayList<HomeCategory> datas){
+    void replaceData(ArrayList<HomeCategory> datas){
         this.mDatas = datas;
+        notifyDataSetChanged();
     }
     @Override
     public int getItemCount() {
@@ -71,7 +73,8 @@ public class ContentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             });
         }
         public void bind(HomeCategory category){
-            mRequestManager.load(category.images).centerCrop().into(categoryImageView);
+
+            mRequestManager.load(category.images.getHigh()).centerCrop().into(categoryImageView);
         }
     }
 }

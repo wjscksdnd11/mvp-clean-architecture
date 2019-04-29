@@ -7,4 +7,5 @@
     <color name="accent_material_dark_2">#f1f6f5</color>
     <color name="accent_material_light">#010101</color>
     <color name="textColorPrimary">#000000</color>
+    <color name="white">#ffffff</color>
 </resources>

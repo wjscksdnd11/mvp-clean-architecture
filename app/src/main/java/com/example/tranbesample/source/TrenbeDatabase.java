@@ -9,7 +9,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {Categories.class}, version =1 )
+@Database(entities = {Categories.class}, version =1,exportSchema = false )
 public abstract class TrenbeDatabase extends RoomDatabase {
     private static TrenbeDatabase INSTANCE;
     public abstract CategoryDao categoryDao();

@@ -1,7 +1,8 @@
 package com.example.tranbesample.source.local;
 
 
-import com.example.tranbesample.datas.HomeCategory;
+
+import com.example.tranbesample.source.entity.Categories;
 
 import java.util.List;
 
@@ -17,10 +18,10 @@ public interface CategoryDao {
      * Select all categories from the categories table.
      */
     @Query("SELECT * FROM Categories")
-    List<HomeCategory> getCategories();
+    List<Categories> getCategories();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertCategory(HomeCategory category);
+    void insertCategory(Categories category);
 
     @Query("DELETE FROM CATEGORIES")
     void deleteAllCategories();

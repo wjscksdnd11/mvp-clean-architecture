@@ -4,15 +4,15 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class ImagesEntity implements Serializable {
+public class ImagesData implements Serializable {
 
-    @SerializedName("x3")
+    @SerializedName("3x")
     private String high;
 
-    @SerializedName("x2")
+    @SerializedName("2x")
     private String mid;
 
-    @SerializedName("x1")
+    @SerializedName("1x")
     private String low;
 
     private String bestImg;
@@ -31,7 +31,7 @@ public class ImagesEntity implements Serializable {
 
     @Override
     public String toString() {
-        return "ImagesEntity{" +
+        return "ImagesData{" +
                 "high='" + high + '\'' +
                 ", mid='" + mid + '\'' +
                 ", low='" + low + '\'' +

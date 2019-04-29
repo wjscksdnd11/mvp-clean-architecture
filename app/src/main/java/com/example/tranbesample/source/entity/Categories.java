@@ -1,13 +1,15 @@
 package com.example.tranbesample.source.entity;
 
 import android.graphics.Bitmap;
+import android.os.Build;
 
-import java.util.Random;
+import java.util.Objects;
 import java.util.UUID;
 
 import javax.annotation.Nonnull;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
@@ -21,7 +23,8 @@ public class Categories {
     @PrimaryKey
     @NonNull
     @ColumnInfo(name = "entry_id")
-    private final String mId;
+    private String mId;
+
 
 
     @Nonnull
@@ -33,18 +36,15 @@ public class Categories {
     private final int mCategoryType;
 
 
-    @PrimaryKey
     @Nonnull
     @ColumnInfo(name = "low_url")
     private final String mLowUrl;
 
 
-    @PrimaryKey
     @Nonnull
     @ColumnInfo(name = "mid_url")
     private final String mMidUrl;
 
-    @PrimaryKey
     @Nonnull
     @ColumnInfo(name = "high_url")
     private final String mHighurl;
@@ -59,5 +59,65 @@ public class Categories {
         this.mLowUrl = mLowUrl;
         this.mMidUrl = mMidUrl;
         this.mHighurl = mHighurl;
+    }
+    @NonNull
+    public String getId() {
+        return mId;
+    }
+
+
+    @Nonnull
+    public String getName() {
+        return mName;
+    }
+
+    public int getCategoryType() {
+        return mCategoryType;
+    }
+
+    @Nonnull
+    public String getLowUrl() {
+        return mLowUrl;
+    }
+
+    @Nonnull
+    public String getMidUrl() {
+        return mMidUrl;
+    }
+
+    @Nonnull
+    public String getHighurl() {
+        return mHighurl;
+    }
+
+    public Bitmap getImages() {
+        return images;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Categories that = (Categories) o;
+            return mCategoryType == that.mCategoryType &&
+                    Objects.equals(mId, that.mId) &&
+                Objects.equals(mName, that.mName);
+
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @Override
+    public int hashCode() {
+            return Objects.hash(mId, mName, mCategoryType);
+
+    }
+
+    public void setImages(Bitmap images) {
+        this.images = images;
+    }
+
+    public void setId(@NonNull String mId) {
+        this.mId = mId;
     }
 }

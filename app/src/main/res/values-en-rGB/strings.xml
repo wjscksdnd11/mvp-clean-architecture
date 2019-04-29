@@ -11,4 +11,6 @@
     <string name="top_category_female">Female</string>
     <string name="top_category_male">Male</string>
     <string name="top_category_sale">Sale</string>
+    <string name="error_msg">Error!</string>
+    <string name="empty_string">Empty Data!!</string>
 </resources>

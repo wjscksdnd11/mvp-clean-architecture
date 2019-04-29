@@ -23,7 +23,7 @@ public class Injection {
         checkNotNull(context);
         TrenbeDatabase database = TrenbeDatabase.getInstance(context);
         return CategoryRepository.getInstance(CategoryRemoteDataSource.getInstance(new AppExecutors(), TrenbeApiService.retrofit.create(TrenbeApiService.class)),
-                CategoryLocalDataSource.getInstance());
+                CategoryLocalDataSource.getInstance(database.categoryDao()));
     }
 
     public static GenderCategories provideGenderCategories(@NonNull Context context) {

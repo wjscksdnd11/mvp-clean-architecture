@@ -11,4 +11,6 @@
     <string name="top_category_female">여성</string>
     <string name="top_category_male">남성</string>
     <string name="top_category_sale">세일</string>
+    <string name="error_msg">Error!</string>
+    <string name="empty_string">Empty Data!!</string>
 </resources>

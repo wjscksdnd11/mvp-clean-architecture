@@ -74,14 +74,14 @@ public class GenderCategories extends UseCase<GenderCategories.RequestValues, Ge
 
     public static final class ResponseValue implements UseCase.ResponseValue {
 
-        private final List<HomeCategory> mTasks;
+        private final List<HomeCategory> mCategories;
 
-        public ResponseValue(@NonNull List<HomeCategory> tasks) {
-            mTasks = checkNotNull(tasks, "tasks cannot be null!");
+        public ResponseValue(@NonNull List<HomeCategory> categories) {
+            mCategories = checkNotNull(categories, "categories cannot be null!");
         }
 
-        public List<HomeCategory> getTasks() {
-            return mTasks;
+        public List<HomeCategory> getCategories() {
+            return mCategories;
         }
     }
 }
