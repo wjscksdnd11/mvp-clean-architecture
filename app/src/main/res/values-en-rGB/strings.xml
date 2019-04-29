@@ -13,4 +13,5 @@
     <string name="top_category_sale">Sale</string>
     <string name="error_msg">Error!</string>
     <string name="empty_string">Empty Data!!</string>
+    <string name="no_child_string">No Child Category</string>
 </resources>
