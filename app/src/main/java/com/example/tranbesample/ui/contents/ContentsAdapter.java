@@ -77,4 +77,12 @@ public class ContentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             mRequestManager.load(category.images.getHigh()).centerCrop().into(categoryImageView);
         }
     }
+
+    public static class ChildViewHolder extends RecyclerView.ViewHolder {
+
+        public ChildViewHolder(View itemView) {
+            super(itemView);
+        }
+    }
+
 }
