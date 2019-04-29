@@ -17,7 +17,6 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager.widget.ViewPager;
 
 public class HomeFragment extends Fragment implements HomeContract.View{
-    private SwipeRefreshLayout mSwipeRefresh;
     private HomePresenter mPresenter;
 
     public static HomeFragment newInstance(){
@@ -39,10 +38,11 @@ public class HomeFragment extends Fragment implements HomeContract.View{
         ViewPager pager = view.findViewById(R.id.pager);
         pager.setAdapter(new HomePagerAdapter(getChildFragmentManager(),getResources().getStringArray(R.array.top_category)));
         pager.setCurrentItem(2);
-        mSwipeRefresh = view.findViewById(R.id.swipe_refresh);
+
         TabLayout tabLayout = view.findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(pager);
         mPresenter = new HomePresenter(this);
+        mPresenter.loadDatas();
         return view;
     }
 

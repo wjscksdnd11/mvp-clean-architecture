@@ -3,10 +3,9 @@ package com.example.tranbesample.datas;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
-public class Categories implements Serializable {
+public class HomeCategory implements Serializable {
     @SerializedName("name")
     public String name;
 
@@ -15,11 +14,11 @@ public class Categories implements Serializable {
 
     public int type;
 
-    public List<Categories> childCategories;
+    public List<HomeCategory> childCategories;
 
     @Override
     public String toString() {
-        return "Categories{" +
+        return "HomeCategory{" +
                 "name='" + name + '\'' +
                 ", images=" + images +
                 ", childCategories=" + childCategories +

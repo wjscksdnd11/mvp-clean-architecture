@@ -12,4 +12,16 @@ public class Constants {
         MID_CATEGORY_TYPE,
         SMALL_CATEGORY_TYPE
     }
+
+    /**
+     * 카테고리 타입
+     */
+    public enum CATEGORIES_TYPE {
+        HOME,
+        BRAND,
+        WOMEN,
+        MAN,
+        SALE
+    }
+
 }
