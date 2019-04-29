@@ -6,6 +6,11 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+
+/**
+ * 메인 화면 Home Fragment Category Data
+ */
 public class HomeCategory implements Serializable {
     @SerializedName("name")
     public String name;
@@ -20,6 +25,7 @@ public class HomeCategory implements Serializable {
 
     public boolean isOpen = false;
 
+    @NonNull
     @Override
     public String toString() {
         return "HomeCategory{" +

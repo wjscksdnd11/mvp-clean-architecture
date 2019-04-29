@@ -4,8 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@id/container"
     tools:context=".ui.main.MainActivity">
 
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:focusable="true"
+        android:layout_height="match_parent"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation"
@@ -14,12 +20,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         app:labelVisibilityMode="labeled"
-        android:background="?attr/BottomNavigationViewBackground"
+        app:layout_anchorGravity="bottom"
+        android:background="?attr/bottomNavigationViewBackground"
         app:menu="@menu/navigation" />
 
-    <FrameLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:focusable="true"
-        android:layout_height="match_parent"/>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

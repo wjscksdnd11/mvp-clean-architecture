@@ -26,13 +26,13 @@ android {
 
     }
     flavorDimensions "defalut"
-    productFlavors{
-        dev{
+    productFlavors {
+        dev {
             dimension "defalut"
             applicationIdSuffix ".dev"
             versionNameSuffix "-dev"
         }
-        prod{
+        prod {
             dimension "defalut"
         }
     }
@@ -43,6 +43,9 @@ dependencies {
 
     def room_version = "2.1.0-alpha07"
     def converter_gson_version = "2.4.0"
+    def gson_version ="2.8.5"
+    def retrofit_version = "2.5.0"
+    def glide_version= "4.9.0"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
@@ -50,26 +53,27 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0-beta01'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
     implementation 'androidx.vectordrawable:vectordrawable:1.0.0-beta01'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0-beta01'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
 
     //util 라이브러리
-    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation "com.google.code.gson:gson:$gson_version"
     implementation 'com.google.guava:guava:27.1-android'
-
 
     //room
     implementation "android.arch.persistence.room:runtime:$room_version"
     annotationProcessor "android.arch.persistence.room:compiler:$room_version"
 
     //retrofit2
-    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$converter_gson_version"
     // Skip this if you don't want to use integration libraries or configure Glide.
 
     //glide
-    implementation 'com.github.bumptech.glide:glide:4.9.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
+
 
     //espresso
     implementation 'com.android.support.test.espresso:espresso-idling-resource:2.3-alpha'

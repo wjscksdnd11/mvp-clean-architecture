@@ -5,6 +5,11 @@ interface MainContract {
 
     }
     interface View{
+        /**
+         * homeFragment 불러오기
+         */
         void goHomeFragment();
+
+        void goEmptyFragment();
     }
 }

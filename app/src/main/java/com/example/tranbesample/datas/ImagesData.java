@@ -4,8 +4,13 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class ImagesData implements Serializable {
+import androidx.annotation.NonNull;
 
+/**
+ * Java의 변수명이 숫자가 앞에 올 수 없기때문에, 이에 유리한 Retrofit Anotation을 활용하였습니다.
+ *
+ */
+public class ImagesData implements Serializable {
     @SerializedName("3x")
     private String high;
 
@@ -29,6 +34,7 @@ public class ImagesData implements Serializable {
         return low;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "ImagesData{" +

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <attr name="BottomNavigationViewBackground" format="reference" />
-    <attr name="ContentsTitleColor" format="reference" />
+    <attr name="bottomNavigationViewBackground" format="color" />
+    <attr name="ContentsTitleColor" format="color" />
 </resources>

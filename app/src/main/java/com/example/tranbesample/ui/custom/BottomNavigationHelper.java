@@ -9,6 +9,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.lang.reflect.Field;
 
+/**
+ * 외부 소스 입니다.
+ */
 public class BottomNavigationHelper {
 
     @SuppressLint("RestrictedApi")

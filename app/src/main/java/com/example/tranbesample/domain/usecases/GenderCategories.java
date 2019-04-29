@@ -63,11 +63,11 @@ public class GenderCategories extends UseCase<GenderCategories.RequestValues, Ge
             mCurrentCategoryType = checkNotNull(currentFiltering, "currentFiltering cannot be null!");
         }
 
-        public boolean isForceUpdate() {
+        boolean isForceUpdate() {
             return mForceUpdate;
         }
 
-        public Constants.CATEGORIES_TYPE getCurrentCategoryType() {
+        Constants.CATEGORIES_TYPE getCurrentCategoryType() {
             return mCurrentCategoryType;
         }
     }
@@ -76,7 +76,7 @@ public class GenderCategories extends UseCase<GenderCategories.RequestValues, Ge
 
         private final List<HomeCategory> mCategories;
 
-        public ResponseValue(@NonNull List<HomeCategory> categories) {
+        ResponseValue(@NonNull List<HomeCategory> categories) {
             mCategories = checkNotNull(categories, "categories cannot be null!");
         }
 

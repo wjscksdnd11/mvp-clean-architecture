@@ -12,6 +12,9 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.ViewCompat;
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 
+/**
+ * 외부 소스입니다.
+ */
 public class QuickReturnFooterBehavior extends CoordinatorLayout.Behavior<View> {
     private static final Interpolator INTERPOLATOR = new FastOutSlowInInterpolator();
     private static final long ANIMATION_DURATION = 200;

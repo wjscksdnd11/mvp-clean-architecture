@@ -1,6 +1,7 @@
 package com.example.tranbesample.ui.contents;
 
 import android.content.Context;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import com.bumptech.glide.Glide;
 import com.example.debug.Injection;
 import com.example.tranbesample.R;
 import com.example.tranbesample.datas.HomeCategory;
+import com.example.tranbesample.ui.empty.BlankFragment;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
@@ -30,6 +32,7 @@ public class ContentsFragment extends Fragment implements ContentsContract.View 
     private ProgressBar mLoadingView;
     private SwipeRefreshLayout mSwipeRefresh;
     private ContentsAdapter mAdapter;
+    private OnFragmentInteractionListener mListener;
 
     public static ContentsFragment newInstance() {
         Bundle bundle = new Bundle();
@@ -65,7 +68,12 @@ public class ContentsFragment extends Fragment implements ContentsContract.View 
             mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
             mAdapter = new ContentsAdapter(Glide.with(getActivity()), mPresenter);
             mRecyclerView.setAdapter(mAdapter);
-
+            mSwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                @Override
+                public void onRefresh() {
+                    mPresenter.loadDatas(true,true);
+                }
+            });
         }
     }
 
@@ -78,6 +86,12 @@ public class ContentsFragment extends Fragment implements ContentsContract.View 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        if (context instanceof OnFragmentInteractionListener) {
+            mListener = (OnFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
     }
 
     @Override
@@ -88,6 +102,7 @@ public class ContentsFragment extends Fragment implements ContentsContract.View 
     @Override
     public void setLoadingIndicator(boolean isShow) {
         mLoadingView.setVisibility(isShow ? View.VISIBLE : View.GONE);
+        mSwipeRefresh.setRefreshing(isShow);
     }
 
     @Override
@@ -96,7 +111,7 @@ public class ContentsFragment extends Fragment implements ContentsContract.View 
     }
 
     @Override
-    public void showNoActiveTasks() {
+    public void showNoActiveDatas() {
         showSnackBar(getString(R.string.empty_string));
 
 
@@ -121,8 +136,12 @@ public class ContentsFragment extends Fragment implements ContentsContract.View 
     }
 
     private void showSnackBar(String msg){
-        if (getView() != null)
-            Snackbar.make(getView(), msg, Snackbar.LENGTH_SHORT).show();
+        if (mListener != null){
+            mListener.onFragmentInteractionMsg(msg);
+        }
     }
+    public interface OnFragmentInteractionListener {
 
+        void onFragmentInteractionMsg(String msg);
+    }
 }

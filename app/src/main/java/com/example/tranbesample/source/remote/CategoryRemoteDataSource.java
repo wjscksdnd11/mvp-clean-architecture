@@ -5,11 +5,7 @@ import android.util.Log;
 import com.example.tranbesample.datas.ContainerData;
 import com.example.tranbesample.datas.HomeCategory;
 import com.example.tranbesample.source.CategoryDataSource;
-import com.example.tranbesample.source.entity.Categories;
 import com.example.tranbesample.utils.AppExecutors;
-
-import java.util.Collections;
-import java.util.List;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -43,7 +39,7 @@ public class CategoryRemoteDataSource implements CategoryDataSource {
             call.enqueue(new Callback<ContainerData>() {
             Runnable runnable;
                 @Override
-                public void onResponse(@Nonnull Call<ContainerData> call, final Response<ContainerData> response) {
+                public void onResponse(@Nonnull Call<ContainerData> call, @NonNull final Response<ContainerData> response) {
                    if (response.body()!=null){
                       runnable=  new Runnable(){
                            @Override

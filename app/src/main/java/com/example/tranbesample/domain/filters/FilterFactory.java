@@ -5,6 +5,9 @@ import com.example.tranbesample.Constants;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Type별 요청을 관리하는 클래스
+ */
 public class FilterFactory {
 
         private static final Map<Constants.CATEGORIES_TYPE, CategoryFilter> mFilters = new HashMap<>();

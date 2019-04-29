@@ -16,6 +16,9 @@ import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
+/**
+ * api 콜 이후 local Database에 저장.
+ */
 @Entity(tableName = "categories", indices = {@Index(value = {"caetgory_name", "caetgory_type"},
         unique = true)})
 public class Categories {

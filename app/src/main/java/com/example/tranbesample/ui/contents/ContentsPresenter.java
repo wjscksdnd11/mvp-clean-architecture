@@ -100,12 +100,14 @@ public class ContentsPresenter implements ContentsContract.Presenter {
                     }
                 });
     }
-    private void processEmptyTasks() {
-        mView.showNoActiveTasks();
+    private void processEmptyDatas() {
+        mView.showNoActiveDatas();
+        mView.setLoadingIndicator(false);
+
     }
     private void processCategory(List<HomeCategory> categories) {
         if (categories.isEmpty()) {
-            processEmptyTasks();
+            processEmptyDatas();
         } else {
             mView.showTasks(categories);
         }

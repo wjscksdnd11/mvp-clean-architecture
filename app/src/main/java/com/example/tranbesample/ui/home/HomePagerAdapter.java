@@ -2,6 +2,7 @@ package com.example.tranbesample.ui.home;
 
 
 import com.example.tranbesample.ui.contents.ContentsFragment;
+import com.example.tranbesample.ui.empty.BlankFragment;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -11,15 +12,18 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 public class HomePagerAdapter extends FragmentStatePagerAdapter {
 
     private String[] mTabCatgories;
-    public HomePagerAdapter(FragmentManager fm,String[] tabCatgories) {
+
+    public HomePagerAdapter(FragmentManager fm, String[] tabCatgories) {
         super(fm);
         this.mTabCatgories = tabCatgories;
     }
 
     @Override
     public Fragment getItem(int position) {
-
-        return ContentsFragment.newInstance();
+        if (position == 2)
+            return ContentsFragment.newInstance();
+        else
+            return BlankFragment.newInstance();
     }
 
     @Nullable
