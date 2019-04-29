@@ -13,7 +13,6 @@ import com.example.tranbesample.source.remote.TrenbeApiService;
 import com.example.tranbesample.utils.AppExecutors;
 
 import androidx.annotation.NonNull;
-import retrofit2.Retrofit;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 

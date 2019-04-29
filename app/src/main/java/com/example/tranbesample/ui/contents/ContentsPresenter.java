@@ -15,6 +15,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
 public class ContentsPresenter implements ContentsContract.Presenter {
 
     private ContentsContract.AdapterView mAdapterView;
+    private ContentsContract.AdapterModel mAdapterModel;
+    private ContentsContract.ChildAdapterView mAdapterChildView;
+
     private final ContentsContract.View mView;
     private final GenderCategories mGenderCategories;
     private Constants.CATEGORIES_TYPE mCurrentType = Constants.CATEGORIES_TYPE.WOMEN;
@@ -28,19 +31,38 @@ public class ContentsPresenter implements ContentsContract.Presenter {
         this.mView = checkNotNull(view);
         this.mGenderCategories = checkNotNull(genderCategories);
         this.mUsecaseHandler = checkNotNull(usecaseHandler);
+    }
 
+    @Override
+    public void setAdapterView(@Nonnull ContentsContract.AdapterView adapterView) {
+        this.mAdapterView = checkNotNull(adapterView);
+    }
+
+    @Override
+    public void setAdapterModel(@Nonnull ContentsContract.AdapterModel adapterModel) {
+        this.mAdapterModel = checkNotNull(adapterModel);
+    }
+
+    @Override
+    public void setChildAdapterView(@Nonnull ContentsContract.ChildAdapterView childAdapterView) {
+        this.mAdapterChildView = checkNotNull(childAdapterView);
+    }
+
+    public void parentItemClick (int adapterPosition) {
+
+        if (mAdapterView!=null){
+            HomeCategory category = mAdapterModel.getChildCategories(adapterPosition);
+            if (category.childCategories!=null && category.childCategories.size()>0) {
+                mAdapterView.onExpandItemView(adapterPosition);
+            }else{
+                mView.showNoChildCategories();
+            }
+        }
 
     }
 
     @Override
-    public void setAdapterView(ContentsContract.AdapterView adapterView) {
-        mAdapterView = adapterView;
-    }
-
-    public void parentItemClick (int adapterPosition) {
-        if (mAdapterView!=null){
-            mAdapterView.onExpandItemView(adapterPosition);
-        }
+    public void childItemClick(int parentPosition, int childPosition) {
 
     }
 

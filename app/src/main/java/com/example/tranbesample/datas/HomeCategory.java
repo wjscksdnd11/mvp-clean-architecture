@@ -1,5 +1,6 @@
 package com.example.tranbesample.datas;
 
+import com.example.tranbesample.Constants;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
@@ -12,10 +13,12 @@ public class HomeCategory implements Serializable {
     @SerializedName("images")
     public ImagesData images;
 
-    public int type;
+    public Constants.CATEGORY type;
 
     @SerializedName("childCategories")
     public List<HomeCategory> childCategories;
+
+    public boolean isOpen = false;
 
     @Override
     public String toString() {
@@ -34,7 +37,7 @@ public class HomeCategory implements Serializable {
         return images;
     }
 
-    public int getType() {
+    public Constants.CATEGORY getType() {
         return type;
     }
 
