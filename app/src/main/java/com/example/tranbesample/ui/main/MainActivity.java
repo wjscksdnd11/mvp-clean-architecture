@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 
 import com.example.tranbesample.R;
+import com.example.tranbesample.ui.custom.BottomNavigationHelper;
 import com.example.tranbesample.ui.home.HomeFragment;
 import com.example.tranbesample.utils.ActivityUtils;
 import com.example.tranbesample.utils.HistoryUtil;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         setContentView(R.layout.activity_main);
 
         navigation = findViewById(R.id.navigation);
+        BottomNavigationHelper.disableShiftMode(navigation);
         navigation.setOnNavigationItemSelectedListener(this);
         historyUtil = new HistoryUtil(R.id.navigation_home);
         navigation.setSelectedItemId(R.id.navigation_home);

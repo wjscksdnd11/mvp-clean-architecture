@@ -1,16 +1,23 @@
 package com.example.tranbesample.ui.contents;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.RequestManager;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
+import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.Target;
 import com.example.tranbesample.R;
 import com.example.tranbesample.datas.HomeCategory;
 
@@ -18,6 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -94,6 +102,7 @@ public class ContentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     public static class ItemViewHolder extends RecyclerView.ViewHolder {
         ImageView categoryImageView;
+        TextView mCategoryTitleView;
         RequestManager mRequestManager;
         ContentsContract.Presenter mPresenter;
         RecyclerView mChildRecyclerView;
@@ -103,6 +112,7 @@ public class ContentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
             categoryImageView = itemView.findViewById(R.id.img);
             mChildRecyclerView = itemView.findViewById(R.id.child_recycler);
+            mCategoryTitleView = itemView.findViewById(R.id.category_title);
             mChildRecyclerView.setLayoutManager(new LinearLayoutManager(itemView.getContext()));
             mRequestManager = requestManager;
             mPresenter = presenter;
@@ -114,12 +124,12 @@ public class ContentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             });
         }
 
-        void bind(HomeCategory category) {
+        void bind(final HomeCategory category) {
 
-            mRequestManager.load(category.images.getLow())
-                    .transition(new DrawableTransitionOptions()
-                            .crossFade())
-                    .into(categoryImageView);
+            mRequestManager.load(category.images.getHigh())
+                    .override(380,400)
+                    .diskCacheStrategy(DiskCacheStrategy.NONE).into(categoryImageView);
+            mCategoryTitleView.setText(category.name);
             mChildRecyclerView.setAdapter(new ChildContentsAdapter(mRequestManager, mPresenter, getAdapterPosition()));
 
         }

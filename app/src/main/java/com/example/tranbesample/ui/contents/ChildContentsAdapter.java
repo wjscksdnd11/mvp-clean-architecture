@@ -77,6 +77,7 @@ public class ChildContentsAdapter extends RecyclerView.Adapter<RecyclerView.View
         RequestManager mRequestManager;
         ImageView mMidCategoryIconView;
         TextView mCategoryNameTextView;
+        TextView mCategoryMidTitleTextView;
 
         ChildViewHolder(@NonNull View itemView,
                         @Nonnull RequestManager requestManager,
@@ -85,6 +86,7 @@ public class ChildContentsAdapter extends RecyclerView.Adapter<RecyclerView.View
             super(itemView);
             mMidCategoryIconView = itemView.findViewById(R.id.category_icon);
             mCategoryNameTextView = itemView.findViewById(R.id.category_name);
+            mCategoryMidTitleTextView = itemView.findViewById(R.id.mid_title);
             this.mRequestManager = checkNotNull(requestManager);
             this.mPresenter = checkNotNull(presenter);
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -95,9 +97,10 @@ public class ChildContentsAdapter extends RecyclerView.Adapter<RecyclerView.View
             });
         }
 
-        public void bind(HomeCategory homeCategory) {
-            mRequestManager.load(homeCategory.images.getHigh()).into(mMidCategoryIconView);
-            mCategoryNameTextView.setText(homeCategory.name);
+        void bind(HomeCategory homeCategory) {
+                mRequestManager.load(homeCategory.images.getHigh()).into(mMidCategoryIconView);
+                mCategoryNameTextView.setText(homeCategory.name);
+                mCategoryMidTitleTextView.setVisibility(getAdapterPosition()==0? View.VISIBLE : View.GONE);
         }
     }
 }
