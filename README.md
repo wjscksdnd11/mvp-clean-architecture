@@ -1,4 +1,4 @@
-# tranbe
+# mvp-clean-architecture
 sample
 
 # README
