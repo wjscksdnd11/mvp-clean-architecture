@@ -5,11 +5,11 @@ import android.content.Context;
 import com.example.mvpclean.domain.UseCaseHandler;
 import com.example.mvpclean.domain.filters.FilterFactory;
 import com.example.mvpclean.domain.usecases.GenderCategories;
+import com.example.mvpclean.source.AppDatabase;
 import com.example.mvpclean.source.CategoryRepository;
-import com.example.mvpclean.source.TrenbeDatabase;
 import com.example.mvpclean.source.local.CategoryLocalDataSource;
 import com.example.mvpclean.source.remote.CategoryRemoteDataSource;
-import com.example.mvpclean.source.remote.TrenbeApiService;
+import com.example.mvpclean.source.remote.ApiService;
 import com.example.mvpclean.utils.AppExecutors;
 
 import androidx.annotation.NonNull;
@@ -20,8 +20,8 @@ public class Injection {
 
     public static CategoryRepository provideTasksRepository(@NonNull Context context) {
         checkNotNull(context);
-        TrenbeDatabase database = TrenbeDatabase.getInstance(context);
-        return CategoryRepository.getInstance(CategoryRemoteDataSource.getInstance(new AppExecutors(), TrenbeApiService.retrofit.create(TrenbeApiService.class)),
+        AppDatabase database = AppDatabase.getInstance(context);
+        return CategoryRepository.getInstance(CategoryRemoteDataSource.getInstance(new AppExecutors(), ApiService.retrofit.create(ApiService.class)),
                 CategoryLocalDataSource.getInstance(database.categoryDao()));
     }
 

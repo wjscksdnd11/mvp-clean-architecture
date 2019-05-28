@@ -10,16 +10,16 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 @Database(entities = {Categories.class}, version =1,exportSchema = false )
-public abstract class TrenbeDatabase extends RoomDatabase {
-    private static TrenbeDatabase INSTANCE;
+public abstract class AppDatabase extends RoomDatabase {
+    private static AppDatabase INSTANCE;
     public abstract CategoryDao categoryDao();
     private static final Object sLock = new Object();
 
-    public static TrenbeDatabase getInstance(Context context){
+    public static AppDatabase getInstance(Context context){
         synchronized (sLock){
             if (INSTANCE ==null){
                 INSTANCE = Room.databaseBuilder(context.getApplicationContext()
-                ,TrenbeDatabase.class,"trenbe.db").build();
+                , AppDatabase.class,"sample.db").build();
             }
             return INSTANCE;
         }

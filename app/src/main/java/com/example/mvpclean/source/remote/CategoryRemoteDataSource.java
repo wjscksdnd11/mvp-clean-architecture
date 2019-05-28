@@ -17,18 +17,18 @@ import retrofit2.Response;
 
 public class CategoryRemoteDataSource implements CategoryDataSource {
 
-    private TrenbeApiService apiService;
+    private ApiService apiService;
     private AppExecutors mAppExcoutors;
     private static CategoryRemoteDataSource INSTANCE;
 
-    private CategoryRemoteDataSource(AppExecutors appExecutors, TrenbeApiService trenbeApiService) {
-        this.apiService = trenbeApiService;
+    private CategoryRemoteDataSource(AppExecutors appExecutors, ApiService apiService) {
+        this.apiService = apiService;
         this.mAppExcoutors = appExecutors;
 
     }
-    public static CategoryRemoteDataSource getInstance(AppExecutors appExecutors, TrenbeApiService trenbeApiService) {
+    public static CategoryRemoteDataSource getInstance(AppExecutors appExecutors, ApiService apiService) {
         if (INSTANCE == null) {
-            INSTANCE = new CategoryRemoteDataSource(appExecutors, trenbeApiService);
+            INSTANCE = new CategoryRemoteDataSource(appExecutors, apiService);
         }
         return INSTANCE;
     }

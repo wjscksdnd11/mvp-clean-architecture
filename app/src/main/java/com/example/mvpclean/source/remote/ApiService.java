@@ -8,7 +8,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 
-public interface TrenbeApiService {
+public interface ApiService {
 
     final String base_url = BuildConfig.BASE_URL;
 
