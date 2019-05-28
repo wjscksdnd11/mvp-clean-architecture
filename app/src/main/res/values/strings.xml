@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">tranbesample</string>
+    <string name="app_name">mvpclean</string>
     <string name="title_home">홈</string>
     <string name="title_upload">업로드</string>
     <string name="title_shopping">쇼핑</string>
@@ -14,4 +14,8 @@
     <string name="empty_string">Empty Data!!</string>
     <string name="no_child_string">No Child Category</string>
     <string name="total_title_cloth">전체의류</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="offline_message">offline</string>
 </resources>

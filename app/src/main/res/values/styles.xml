@@ -6,7 +6,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <item name="android:colorBackground">@color/accent_material_dark_1</item>
-        <item name="BottomNavigationViewBackground">@color/white</item>
+        <item name="bottomNavigationViewBackground">@color/white</item>
         <item name="ContentsTitleColor">@color/white</item>
     </style>
 
