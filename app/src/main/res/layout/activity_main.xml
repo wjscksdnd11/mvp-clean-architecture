@@ -15,7 +15,7 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation"
-        app:layout_behavior="com.example.tranbesample.ui.custom.QuickReturnFooterBehavior"
+        app:layout_behavior="com.example.mvpclean.ui.custom.QuickReturnFooterBehavior"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"

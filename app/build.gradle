@@ -2,9 +2,8 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 28
-    buildToolsVersion "28.0.2"
     defaultConfig {
-        applicationId "com.example.tranbesample"
+        applicationId "com.example.mvpclean"
         minSdkVersion 15
         targetSdkVersion 28
         versionCode 1
